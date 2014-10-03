@@ -9,7 +9,7 @@ Things learned about JS:
 1. Variable identifiers(var name (<--Identifier) = text ) can only start with must start with a letter, underscore (_), or dollar sign ($); subsequent characters can also be digits (0-9)
 2. Everything in javascript acts as anobject. The exception is "null" and "undefined"
 3. An array is a special variable, which can hold more than one value at a time.(EX: var names ["mark","matt","walter"])
-4. 
+4. var i = 0 is position
 5.
 6.
 7.
@@ -76,14 +76,20 @@ Math.max(num1, num2, num3); //since the variable was already defined above, I si
 // ---------------------
 // Write a function that takes a character (i.e. a string of length 1) and returns true if it is a vowel, false otherwise.
 // ---------------------
-var vowels = ("a,e,i,o,u")
-var leng = .length
+var findVowel = function(letter) {
 
-function isVowel(char) {
-    "use strict";
+    var vowels = ["a", "e", "i", "o", "u"];
 
+    for(var i = 0; i < vowels.length; i++){
+        if(letter === vowels[i]){
+            return true;
+         }
+    }
+    
+    return false;
 
-}
+};
+
 
 // ---------------------
 // Write a function translate() that will translate a text into "rövarspråket". That is, double every consonant and place an occurrence of "o" in between. For example, translate("this is fun") should return the string "tothohisos isos fofunon".
@@ -166,15 +172,13 @@ console.log(multiply(5)(9)(6))
 // Define a function reverse() that computes the reversal of a string. For example, reverse("jag testar") should return the string "ratset gaj".
 // ---------------------
 
-function reverse()
-"use strict";
-
-var color = ["red", "Black"];
-color.reverse();
-
-
-
-
+function reverse(string) {
+    var rev = new Array(string.length);
+    for (var i = string.length - 1; i >= 0; i--) {
+        rev[i] = string[string.length - i - 1];
+    }
+    return rev.join('');
+}
 
 // ---------------------
 // Write a function findLongestWord() that takes an array of words and returns the length of the longest one.
@@ -197,10 +201,12 @@ console.log(findLongestWord(countries))
 
 function filterLongWords(words, i) {
     "use strict";
-    var filterLongWords = ("water", "slider", "ordinary", i = 1)
+    var filterLongWords = (var i = 0, "water", "slider", "ordinary")
     filterLongWords.sort(function) {
+
         return a.name.length > b.name.length, i ? 1 : -1;
-    })
+    }
+})
 
 // ---------------------
 // Write a function charFreq() that takes a string and builds a frequency listing of the characters contained in it. Represent the frequency listing as a Javascript object. Try it with something like charFreq("abbabcbdbabdbdbabababcbcbab").
@@ -208,16 +214,43 @@ function filterLongWords(words, i) {
 
 function charFreq(string) {
     "use strict";
-
-    var charFreq = function(string) {
-        var dictionary = {};
-        for (var i = 0, length = string.length; i < length; i++) {
-            var currentChar = string.charAt(i);
-            if (currentChar in dictionary) {
-                dictionary[currentChar] += 1;
-            } else {
-                dictionary[currentChar] = 1;
-            }
-        }
-        return dictionary
+    var dictionary = {};
+    for (var i = 0, i < string.length; i++) {
+        dictionary[string[i]] =
+            (dictionary[string[i]] === undefined) ?
+            1 :
+            dictionary[string[i]] + 1;
     }
+    return dictionary;
+}
+
+function testFreq(string) {  
+    var characters = {};
+
+      
+    for (var i = 0; i < string.length; i++) {
+
+            
+        characters[string[i]] =(characters[string[i]] === undefined) ? 1 : characters[string[i]] + 1;  
+    }  
+    return characters;  
+}
+
+
+// the object characters is empty
+
+// we pass in a string called "hhllo"
+
+// let's set this object characters equal to 
+
+// Does the characters object have a property that is equal to the value of hello at index equal to 0 which is h?
+
+// There is no property h in our characters object so let's define it and set it equal to a value of 1
+
+// loop again with i equal to 1
+
+// Does the characters object have a property that is equal to the value of hello at index equal to 1 which is h?
+
+// Yes, this proprety is defined and has a value equal to 1, so set the value of the characters object whose property is the same
+// as the value of the string at index=1 (which is also h) and let's increment it by 1. So now this property (which is h) is equal
+// to 2.
