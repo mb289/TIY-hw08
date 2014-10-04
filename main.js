@@ -10,31 +10,18 @@ Things learned about JS:
 2. Everything in javascript acts as anobject. The exception is "null" and "undefined"
 3. An array is a special variable, which can hold more than one value at a time.(EX: var names ["mark","matt","walter"])
 4. var i = 0 is position
-5.
-6.
-7.
-8.
-9.
-10.
-11.
-12.
-13
-14.
-15.
-16.
-17.
-18.
-19.
-20.
+5. it is best to use strict equality operator "===" as opposed to equality operator"==". The latter is more strict and will help in not having false data.
+6. the instanceof operator compares the constructors of its two operands. It is only useful when comparing custom made objects
+7. adding the word new in fron of a type such as number changes the behavior of the type. If we add a new number to an object of number it will act like a convertor. If we simply add a number word to a number object it will be viewed as a new number object. Same applies with string type. Casting works best.
+8. 3 ways to cast to object types such as Boolen, String and number. Casting a Boolean
+9.  To cast a boolean use the "!!" not operator twice to convert to a boolen. (!!'foo';// true)(!!'';// false)
+10. To cast to a number use the urinary plus operator (+'10' === 10; // true)
+11. To cast to a string it will help prepending an empty string. ('' + 10 === '10'; // true)
+12. JS needs a ; in order to understand the code. If ; are nt insrted the JS parsor will automatically insert. This is not good.
+13. If you have leadging parenthesis, the parsor will not insert semi-colons. IT may then be transformed into a line. 
+14. If transformed into a line, the log may not take it and than propmt an error such as type error or function undefined.
+15. NEVER OMIT SEMI-COLONS!!
  */
-
-
-
-
-
-
-
-
 
 /**
  *
@@ -80,12 +67,12 @@ var findVowel = function(letter) {
 
     var vowels = ["a", "e", "i", "o", "u"];
 
-    for(var i = 0; i < vowels.length; i++){
-        if(letter === vowels[i]){
+    for (var i = 0; i < vowels.length; i++) {
+        if (letter === vowels[i]) {
             return true;
-         }
+        }
     }
-    
+
     return false;
 
 };
@@ -94,43 +81,42 @@ var findVowel = function(letter) {
 // ---------------------
 // Write a function translate() that will translate a text into "rövarspråket". That is, double every consonant and place an occurrence of "o" in between. For example, translate("this is fun") should return the string "tothohisos isos fofunon".
 // ---------------------
-
+/*
 function rovarspraket(phrase) {
     "use strict";
     var vowels = "a,e,i,o,u";
     phrase.split("").map(function)
-    /* <---------------------correct
-function rovarspraket(phrase){
-    "use strict";
+    */
+/** "use strict";
+function rovarspraket(phrase) {
+   
     return phrase.split("").map(function(letter){
-        /**
+        
          * letter in each iteration is a character,
          * we test this character whether it is a consonant,
          * if so, return letter+'o'+letter
          * else, just return letter
          * @type {String}
          */
-         return "aeiouAEIOU \"'/\\".indexOf(letter) >= 0 ? letter : letter + "o" + letter;
+/*   return "aeiouAEIOU \"'/\\".indexOf(letter) >= 0 ? letter : letter + "o" + letter;
 
       
 }).join("");
 }
+*/
 
-function rovarspraket2(phrase) {  
+function rovarspraket2(phrase) {
     var resultArray = "";
-
-      
-    for (var i = 0; i < phrase.length; i++) {    
-        resultArray +=       "aeiouAEIOU \"'/\\".indexOf(phrase[i]) >= 0 ? phrase[i] : phrase[i] + "o" + phrase[i];  
+    for (var i = 0; i < phrase.length; i++) {
+        resultArray += "aeiouAEIOU \"'/\\".indexOf(phrase[i]) >= 0 ? phrase[i] : phrase[i] + "o" + phrase[i];
     }
 
-      
     return resultArray;
 }
 
-* /
 
-/ / ---------------------
+
+
 // Define a function sum() and a function multiply() that sums and multiplies (respectively) all the numbers in an array of numbers. For example, sum([1,2,3,4]) should return 10, and multiply([1,2,3,4]) should return 24.
 // ---------------------
 
@@ -151,7 +137,7 @@ function sum(n) {
 
 console.log(+sum(5)(9)(6));
 
-------------------------------------
+
 
 function multiply(n) {
     "use strict";
@@ -194,46 +180,34 @@ function findLongestWord(words) {
     })
 }
 
-console.log(findLongestWord(countries))
-// ---------------------
-// Write a function filterLongWords() that takes an array of words and an integer i and returns the array of words that are longer than i.
-// ---------------------
+console.log(findLongestWord)
+    // ---------------------
+    // Write a function filterLongWords() that takes an array of words and an integer i and returns the array of words that are longer than i.
+    // ---------------------
 
-function filterLongWords(words, i) {
-    "use strict";
-    var filterLongWords = (var i = 0, "water", "slider", "ordinary")
-    filterLongWords.sort(function) {
-
-        return a.name.length > b.name.length, i ? 1 : -1;
+var filterLongWords = function(array, int){
+  var a = array.length;
+  var longestWords = {};
+  for (var i = 2; i < a; i++) {
+    if (array.length [i]> int) {
+      longestWords[a[i]] = (longestwords [a[i]] === undefined) ? 1:longestwords[a[i]] + 1;
     }
-})
+  }
+  return longestWords;
+}
 
 // ---------------------
 // Write a function charFreq() that takes a string and builds a frequency listing of the characters contained in it. Represent the frequency listing as a Javascript object. Try it with something like charFreq("abbabcbdbabdbdbabababcbcbab").
 // ---------------------
 
-function charFreq(string) {
-    "use strict";
-    var dictionary = {};
-    for (var i = 0, i < string.length; i++) {
-        dictionary[string[i]] =
-            (dictionary[string[i]] === undefined) ?
-            1 :
-            dictionary[string[i]] + 1;
-    }
-    return dictionary;
-}
-
-function testFreq(string) {  
+function testFreq(string) {
     var characters = {};
 
-      
     for (var i = 0; i < string.length; i++) {
 
-            
-        characters[string[i]] =(characters[string[i]] === undefined) ? 1 : characters[string[i]] + 1;  
-    }  
-    return characters;  
+        characters[string[i]] = (characters[string[i]] === undefined) ? 1 : characters[string[i]] + 1;
+    }
+    return characters;
 }
 
 
