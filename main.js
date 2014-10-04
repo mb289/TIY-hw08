@@ -41,14 +41,14 @@ function max() {
 
     if (num1 > num2) {
 
-        console.log(num1)
+        return num1
 
     } else {
 
-        console.log(num2);
+        return num2;
     }
 }
-max(num1, num2);
+console.log(max(num1, num2));
 
 // ---------------------
 // Define a function maxOfThree() that takes three numbers as arguments and returns the largest of them.
@@ -56,27 +56,18 @@ max(num1, num2);
 
 function maxOfThree() {
     "use strict";
-    console.log(num3)
 }
 Math.max(num1, num2, num3); //since the variable was already defined above, I simply ran a console log of num3 and ran the function of Math.max to give me the highest number out of the 3.
 
+console.log(maxOfThree(10,15,5))
 // ---------------------
 // Write a function that takes a character (i.e. a string of length 1) and returns true if it is a vowel, false otherwise.
 // ---------------------
 var findVowel = function(letter) {
-
-    var vowels = ["a", "e", "i", "o", "u"];
-
-    for (var i = 0; i < vowels.length; i++) {
-        if (letter === vowels[i]) {
-            return true;
-        }
-    }
-
-    return false;
-
+    return "aeiou".indexOf(letter) != -1;
 };
 
+console.log(findVowel("b"))
 
 // ---------------------
 // Write a function translate() that will translate a text into "rövarspråket". That is, double every consonant and place an occurrence of "o" in between. For example, translate("this is fun") should return the string "tothohisos isos fofunon".
@@ -115,7 +106,7 @@ function rovarspraket2(phrase) {
 }
 
 
-
+console.log(rovarspraket2("how are you doing"))
 
 // Define a function sum() and a function multiply() that sums and multiplies (respectively) all the numbers in an array of numbers. For example, sum([1,2,3,4]) should return 10, and multiply([1,2,3,4]) should return 24.
 // ---------------------
@@ -135,7 +126,7 @@ function sum(n) {
     return s;
 }
 
-console.log(+sum(5)(9)(6));
+console.log(sum(5)(9)(6));
 
 
 
@@ -166,6 +157,7 @@ function reverse(string) {
     return rev.join('');
 }
 
+console.log(reverse("ninja turtles"))
 // ---------------------
 // Write a function findLongestWord() that takes an array of words and returns the length of the longest one.
 // ---------------------
@@ -180,7 +172,7 @@ function findLongestWord(words) {
     })
 }
 
-console.log(findLongestWord)
+console.log(findLongestWord("usa","canada","uk"))
     // ---------------------
     // Write a function filterLongWords() that takes an array of words and an integer i and returns the array of words that are longer than i.
     // ---------------------
@@ -195,7 +187,7 @@ var filterLongWords = function(array, int){
   }
   return longestWords;
 }
-
+console.log(filterLongWords("hi","hola","howdy"))
 // ---------------------
 // Write a function charFreq() that takes a string and builds a frequency listing of the characters contained in it. Represent the frequency listing as a Javascript object. Try it with something like charFreq("abbabcbdbabdbdbabababcbcbab").
 // ---------------------
@@ -210,6 +202,7 @@ function testFreq(string) {
     return characters;
 }
 
+console.log(testFreq("how are you doing"))
 
 // the object characters is empty
 
